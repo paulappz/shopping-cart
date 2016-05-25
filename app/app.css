@@ -1,0 +1,16 @@
+.product {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.product-name {
+	margin-top: 10px;
+	font-size: 1.2em;
+}
+
+.cart {
+	border: 1px dashed #ccc;
+	padding: 20px;
+	min-height: 120px;
+	margin-bottom: 20px;
+}
