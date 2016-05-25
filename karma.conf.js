@@ -5,11 +5,16 @@ module.exports = function(config) {
     basePath: './app',
 
     files: [
+      'bower_components/jquery/dist/jquery.min.js',
+      'bower_components/jquery-ui/jquery-ui.min.js',
+      'bower_components/bootstrap/dist/js/bootstrap.min.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'view*/**/*.js'
+      'bower_components/angular-dragdrop/src/angular-dragdrop.min.js',
+      '*.js',
+      'directives/*.js',
+      'tests/*.js',
     ],
 
     autoWatch: true,
