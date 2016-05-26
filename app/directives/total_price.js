@@ -5,13 +5,11 @@ angular
 	.directive('totalPrice', function(){
 		
 		var doSum = function (cartItems) {
-			if (cartItems.length === 0)
-				return {price: 0};
-			return cartItems.reduce(
-				function(total, item) {
-					return {price: total.price + item.price};
-				}
-			);
+			var totalPrice = 0;
+			Object.keys(cartItems).forEach(function(i){
+				totalPrice += cartItems[i].qty * cartItems[i].price;
+			});
+			return totalPrice;
 		}; 
 
 		return {
@@ -22,6 +20,7 @@ angular
 			templateUrl: 'directives/total_price.html',
 			link: function (scope, element, attr) {
 				scope.sumTotalPrice = function (cartItems) {
+
 					return doSum(cartItems);
 				};
 			}
