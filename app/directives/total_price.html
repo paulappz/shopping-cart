@@ -1,6 +1,8 @@
-<p class="total-price">Total price of items in your cart: <span>&#8358; {{ sumTotalPrice(cartItems).price }}</span></p>
+<p class="total-price">Total price of items in your cart: <span>&#8358; {{ sumTotalPrice(cartItems).toFixed(2) }}</span></p>
 <style>
 	.total-price span {
-		font-size: 2em;
+		font-size: 1.3em;
+		font-family: Century Gothic, sans-serif;
+		font-weight: bold;
 	}
 </style>
