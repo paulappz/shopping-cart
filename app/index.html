@@ -3,35 +3,71 @@
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="shoppingCart" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="shoppingCart">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>My AngularJS App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#!/view1">view1</a></li>
-    <li><a href="#!/view2">view2</a></li>
-  </ul>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
+  <div class="container" ng-controller="ShoppingCartCtrl">
 
-  <div>Shopping Cart</div>
+ <div class="jumbotron">
+    <h1>Shopping Cart</h1>
+    <h3>....... carting with ease</h3> 
+  </div>
 
-  <div ng-view></div>
+    <div class="row" >
+      <div class="col-sm-8">
+        <h2>Products</h2>
+        <div class="row">
+          <div class="col-sm-2 product" ng-repeat="(id, product) in productGroup" 
+          data-drag="true" ng-model="product" data-jqyoui-options="{helper:'clone'}" 
+          jqyoui-draggable="{onStop:'removeOne({id:id})',placeholder:'keep'}" 
+          ng-hide="hideIfOutofStock(id)"
+          >
+            <img ng-src="{{ product.photoUrl }}" class="img-responsive">
+            <p class="product-name">{{ product.name }}</p>
+            <p>&#8358; {{ product.price.toFixed(2) }}</p>
+            <p><em>{{ product.qty }} items available</em></p>
+          </div>
+        </div>
+      </div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+      <div class="col-sm-4">
+        <h2>Cart Area</h2>
+        <div class="cart" data-drop="true" 
+        jqyoui-droppable="{onDrop: 'addToCart({cart: cart})'}" ng-model="cart">   
+          <cart-table info="cartItems"></cart-table>
+        </div>
+        <div>
+          <total-price info="cartItems"></total-price>
+          <total-items info="cartItems"></total-items>
+        </div>
+
+         <input type="submit" value="Checkout" class="login" />
+      </div>
+    </div>
+  </div>
+ 
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-dragdrop/src/angular-dragdrop.min.js"></script>
   <script src="app.js"></script>
+  <script src="directives/total_items.js"></script>
+  <script src="directives/total_price.js"></script>
+  <script src="directives/cart_table.js"></script>
 </body>
 </html>

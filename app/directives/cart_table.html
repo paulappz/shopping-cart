@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Unit Price (&#8358;)</th>
+      <th colspan=2></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr ng-repeat="(itemId, item) in groupItemsInCart" 
+    ng-hide="isItemQtyZero(itemId)">
+      <td>{{ item.name }}</td>
+      <td>{{ item.qty }}</td>
+      <td>{{ item.price.toFixed(2) }}</td>
+      <td><button ng-disabled="isOutOfStock(itemId)" 
+      ng-click="addMore(itemId)">+</button> <button 
+      ng-click="putBackInStore(itemId)">-</button></td>
+
+    </tr>
+  </tbody>
+</table>
