@@ -3,6 +3,13 @@ module.exports = function(config) {
   config.set({
 
     basePath: './app',
+    preprocessors: {
+      'directives/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+      moduleName: 'templates'
+    },
 
     files: [
       'bower_components/jquery/dist/jquery.min.js',
@@ -15,6 +22,8 @@ module.exports = function(config) {
       '*.js',
       'directives/*.js',
       'tests/*.js',
+       // templates
+      'directives/*.html'
     ],
 
     autoWatch: true,
@@ -27,7 +36,8 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-junit-reporter'
+      'karma-junit-reporter',
+      'karma-ng-html2js-preprocessor'
     ],
 
     junitReporter: {
