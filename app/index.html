@@ -31,8 +31,7 @@
         <h2>Products</h2>
         <div class="row">
           <div class="col-sm-2 product" ng-repeat="(id, product) in productGroup" 
-          data-drag="true" ng-model="product" 
-          data-jqyoui-options="{helper:'clone'}" 
+          data-drag="true" ng-model="product" data-jqyoui-options="{helper:'clone'}" 
           jqyoui-draggable="{onStop:'removeOne({id:id})',placeholder:'keep'}" 
           ng-hide="hideIfOutofStock(id)"
           >
