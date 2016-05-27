@@ -1,4 +1,5 @@
 describe('<total-items> directive', function() {
+
 	
 	var $compile,
       $rootScope,
@@ -37,21 +38,26 @@ describe('<total-items> directive', function() {
   it('isOutOfStock', function() {
 	});
 
+  beforeEach(module('shoppingCart'));
+
+
 });
 
 describe('<total-price> directive', function() {
+
 	beforeEach(module('shoppingCart'));
 
 	it('calculates to price', function() {
 
 	});
 
-});
 
 describe('<cart-table> directive', function() {
+
 	beforeEach(module('shoppingCart'));
 
 	it('displays cart table', function() {
 
 	});
 });
+

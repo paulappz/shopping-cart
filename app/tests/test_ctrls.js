@@ -1,4 +1,5 @@
 describe('ShoppingCartCtrl', function() {
+
   var $controller;
   var $scope;
 
@@ -20,7 +21,9 @@ describe('ShoppingCartCtrl', function() {
           },
           id: 0
         }
+
     };
+
   }));
 
 
