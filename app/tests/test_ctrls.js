@@ -1,8 +1,8 @@
 describe('ShoppingCartCtrl', function() {
-  beforeEach(module('shoppingCart'));
-
   var $controller;
   var $scope;
+
+  beforeEach(module('shoppingCart'));
 
   beforeEach(inject(function(_$controller_){
     $controller = _$controller_;
@@ -20,7 +20,7 @@ describe('ShoppingCartCtrl', function() {
           },
           id: 0
         }
-      };
+    };
   }));
 
 
