@@ -11,7 +11,7 @@ angular
 			link: function (scope, element, attr) {
 
 				scope.$watch(attr.info, function(newValue, oldValue){
-	                scope.groupedItems = scope.cartItems;
+	                scope.groupItemsInCart = scope.cartItems;
 	            }, true);
 
 				scope.isOutOfStock = function (id){
@@ -19,19 +19,17 @@ angular
 				};
 
 	            scope.putBackInStore = function(id) {
-	            	console.log(id);
-	            	scope.groupedItems[id].qty -= 1;
-	            	scope.productGroup[id].qty += 1;
-	            	
+	            	scope.groupItemsInCart[id].qty -= 1;
+	            	scope.productGroup[id].qty += 1; 	
 	            };
 	            
 	            scope.addMore = function(itemId) {
-	            	scope.groupedItems[itemId].qty += 1;
+	            	scope.groupItemsInCart[itemId].qty += 1;
 	            	scope.productGroup[itemId].qty -= 1;
 	            };
 
 	            scope.isItemQtyZero = function(id) {
-	            	return scope.groupedItems[id].qty === 0;
+	            	return scope.groupItemsInCart[id].qty === 0;
 	            };
 
 			}
